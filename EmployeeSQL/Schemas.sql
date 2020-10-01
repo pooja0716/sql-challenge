@@ -22,10 +22,9 @@ CREATE TABLE dept_manager (
     "emp_no" INT   NOT NULL
 );
  		
-
 CREATE TABLE "employees" (
     "emp_no" INT   NOT NULL,
-	" emp_title_id" VARCHAR(10) NOT NULL,
+	"title_id" VARCHAR(10) NOT NULL,
     "birth_date" DATE   NOT NULL,
     "first_name" VARCHAR(20)   NOT NULL,
     "last_name" VARCHAR(20)   NOT NULL,
@@ -42,7 +41,6 @@ CREATE TABLE "salaries" (
     "salary" INT   NOT NULL
 );
 
-DROP TABLE IF EXISTS titles;
 CREATE TABLE "titles" (
     "title_id" VARCHAR(20)   NOT NULL,
     "title" VARCHAR(20)   NOT NULL,
@@ -68,5 +66,5 @@ REFERENCES "employees" ("emp_no");
 ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "salaries" ("emp_no");
 
-ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id")
+ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_title_id" FOREIGN KEY("title_id")
 REFERENCES "titles" ("title_id");
